@@ -8,7 +8,7 @@ export default {
     tailwindConfig: './tailwind.config.js'
   },
   buildOptions: {
-    out: 'dist'
+    out: 'docs'
   },
   plugins: [
     '@snowpack/plugin-postcss'
