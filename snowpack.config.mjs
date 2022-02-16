@@ -1,7 +1,7 @@
 // snowpack.config.mjs
 export default {
   mount: {
-    src: '/_dist',
+    src: '/',
     public: '/'
   },
   devOptions: {
