@@ -1,6 +1,5 @@
 import React from 'react'
 import { DownloadButton } from './DownloadButton'
-import { Logo } from './Logo'
 
 const App = () => {
   return (
