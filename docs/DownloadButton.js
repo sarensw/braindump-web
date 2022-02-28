@@ -1,10 +1,24 @@
 import React from "./_snowpack/pkg/react.js";
 export const DownloadButton = ({platform, href, href2 = "", href3 = ""}) => {
+  const trackEvent = () => {
+    try {
+      if (platform === "win") {
+        window.fathom.trackGoal("BNT72FDS", 0);
+      } else if (platform === "darwin") {
+        window.fathom.trackGoal("BXS3OGJQ", 0);
+      } else if (platform === "linux") {
+        window.fathom.trackGoal("U8O4ROHR", 0);
+      }
+    } catch (err) {
+      console.log("Browser has a popup blocker :(");
+    }
+  };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col gap-1"
   }, /* @__PURE__ */ React.createElement("a", {
-    className: "bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center",
-    href
+    className: "bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer",
+    href,
+    onClick: () => trackEvent()
   }, platform === "darwin" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("svg", {
     viewBox: "0 0 384 512",
     width: "32"

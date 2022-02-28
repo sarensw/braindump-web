@@ -29,7 +29,7 @@ export const DownloadButton = ({ platform, href, href2 = '', href3 = '' }: Downl
   return (
     <>
       <div className='flex flex-col gap-1'>
-        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center' href={href} onClick={() => trackEvent()}>
+        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer' href={href} onClick={() => trackEvent()}>
           {platform === 'darwin' &&
             <>
               <svg viewBox='0 0 384 512' width='32'>
