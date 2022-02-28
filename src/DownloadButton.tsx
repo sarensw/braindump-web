@@ -8,10 +8,28 @@ interface DownloadButtonProps {
 }
 
 export const DownloadButton = ({ platform, href, href2 = '', href3 = '' }: DownloadButtonProps) => {
+
+  const trackEvent = () => {
+    try {
+      if (platform === 'win') {
+        // @ts-ignore: global fathom given by fathom script
+        window.fathom.trackGoal('BNT72FDS', 0);
+      } else if (platform === 'darwin') {
+        // @ts-ignore: global fathom given by fathom script
+        window.fathom.trackGoal('BXS3OGJQ', 0);
+      } else if (platform === 'linux') {
+        // @ts-ignore: global fathom given by fathom script
+        window.fathom.trackGoal('U8O4ROHR', 0);
+      }
+    } catch (err) {
+      console.log('Browser has a popup blocker :(')
+    }
+  }
+
   return (
     <>
       <div className='flex flex-col gap-1'>
-        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center' href={href}>
+        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center' href={href} onClick={() => trackEvent()}>
           {platform === 'darwin' &&
             <>
               <svg viewBox='0 0 384 512' width='32'>
