@@ -1,4 +1,5 @@
 import React from 'react'
+import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { DownloadButton } from '../DownloadButton'
 import { GoPro } from './GoPro'
 
@@ -13,7 +14,9 @@ const Home = () => {
             {/* <Logo /> */}
             <div className='font-mono'>braindump</div>
             <div className='flex-grow' />
-            <div />
+            <div>
+              <BuyMeCoffee width='9rem' />
+            </div>
           </div>
 
           {/* <!-- title --> */}
