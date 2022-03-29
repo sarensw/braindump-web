@@ -1,5 +1,5 @@
-import React from "./_snowpack/pkg/react.js";
-export const DownloadButton = ({platform, href, href2 = "", href3 = ""}) => {
+import React from "../_snowpack/pkg/react.js";
+export const DownloadButton = ({platform, version, build}) => {
   const trackEvent = () => {
     try {
       if (platform === "win") {
@@ -13,11 +13,30 @@ export const DownloadButton = ({platform, href, href2 = "", href3 = ""}) => {
       console.log("Browser has a popup blocker :(");
     }
   };
+  const getLink = (alt = void 0) => {
+    const url = "https://braindump-releases.s3.eu-central-1.amazonaws.com";
+    const name = "Braindump";
+    if (platform === "win") {
+      return `${url}/${name}_${version}_${build}/Braindump+Setup+${version}.exe`;
+    } else if (platform === "darwin") {
+      return `${url}/${name}_${version}_${build}/Braindump-${version}.dmg`;
+    } else if (platform === "linux") {
+      if (alt === void 0) {
+        return `${url}/${name}_${version}_${build}/braindump-${version}.tar.gz`;
+      } else if (alt === "deb") {
+        return `${url}/${name}_${version}_${build}/braindump_${version}_amd64.deb`;
+      } else if (alt === "rpm") {
+        return `${url}/${name}_${version}_${build}/braindump-${version}.x86_64.rpm`;
+      }
+    } else {
+      return "";
+    }
+  };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col gap-1"
   }, /* @__PURE__ */ React.createElement("a", {
     className: "bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer",
-    href,
+    href: getLink(),
     onClick: () => trackEvent()
   }, platform === "darwin" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("svg", {
     viewBox: "0 0 384 512",
@@ -53,9 +72,9 @@ export const DownloadButton = ({platform, href, href2 = "", href3 = ""}) => {
     className: "grid grid-cols-2 text-xs gap-1 text-white"
   }, /* @__PURE__ */ React.createElement("a", {
     className: "bg-gray-800 text-center p-2",
-    href: href2
+    href: getLink("deb")
   }, ".deb"), /* @__PURE__ */ React.createElement("a", {
     className: "bg-gray-800 text-center p-2",
-    href: href3
+    href: getLink("rpm")
   }, ".rpm"))));
 };
