@@ -2,12 +2,11 @@ import React from 'react'
 
 interface DownloadButtonProps {
   platform: string,
-  href: string,
-  href2?: string,
-  href3?: string
+  version: string,
+  build: string
 }
 
-export const DownloadButton = ({ platform, href, href2 = '', href3 = '' }: DownloadButtonProps) => {
+export const DownloadButton = ({ platform, version, build }: DownloadButtonProps) => {
 
   const trackEvent = () => {
     try {
@@ -26,10 +25,30 @@ export const DownloadButton = ({ platform, href, href2 = '', href3 = '' }: Downl
     }
   }
 
+  const getLink = (alt: string | undefined = undefined) => {
+    const url = 'https://braindump-releases.s3.eu-central-1.amazonaws.com'
+    const name = 'Braindump'
+    if (platform === 'win') {
+      return `${url}/${name}_${version}_${build}/Braindump+Setup+${version}.exe`
+    } else if (platform === 'darwin') {
+      return `${url}/${name}_${version}_${build}/Braindump-${version}.dmg`
+    } else if (platform === 'linux') {
+      if (alt === undefined) {
+        return `${url}/${name}_${version}_${build}/braindump-${version}.tar.gz`
+      } else if (alt === 'deb') {
+        return `${url}/${name}_${version}_${build}/braindump_${version}_amd64.deb`
+      } else if (alt === 'rpm') {
+        return `${url}/${name}_${version}_${build}/braindump-${version}.x86_64.rpm`
+      }
+    } else {
+      return ''
+    }
+  }
+
   return (
     <>
       <div className='flex flex-col gap-1'>
-        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer' href={href} onClick={() => trackEvent()}>
+        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer' href={getLink()} onClick={() => trackEvent()}>
           {platform === 'darwin' &&
             <>
               <svg viewBox='0 0 384 512' width='32'>
@@ -57,8 +76,8 @@ export const DownloadButton = ({ platform, href, href2 = '', href3 = '' }: Downl
         </a>
         {platform === 'linux' &&
           <div className='grid grid-cols-2 text-xs gap-1 text-white'>
-            <a className='bg-gray-800 text-center p-2' href={href2}>.deb</a>
-            <a className='bg-gray-800 text-center p-2' href={href3}>.rpm</a>
+            <a className='bg-gray-800 text-center p-2' href={getLink('deb')}>.deb</a>
+            <a className='bg-gray-800 text-center p-2' href={getLink('rpm')}>.rpm</a>
           </div>}
       </div>
     </>

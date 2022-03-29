@@ -1,10 +1,13 @@
 import React from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
-import { DownloadButton } from '../DownloadButton'
+import { DownloadButton } from '../components/DownloadButton'
 import { GoPro } from './GoPro'
 
 const Home = () => {
+  const version = '0.7.0'
+  const build = '117'
+
   return (
     <>
       <div className='relative overflow-hidden pt-4'>
@@ -30,23 +33,24 @@ const Home = () => {
           <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8'>Braindump is a plain-text Markdown based notepad that works completely offline. Write down your thoughts without thinking about structure first. For developers, makers, tech enthusiasts, and keyboard lovers.</div>
 
           {/* version */}
-          <div className='text-center mt-8 mb-1 text-gray-500 px-8'>v0.6.3</div>
+          <div className='text-center mt-8 mb-1 text-gray-500 px-8'>v{version}</div>
 
           {/* <!-- download --> */}
           <div className='mx-auto flex flex-row gap-4 justify-center flex-wrap px-8'>
             <DownloadButton
               platform='win'
-              href='https://braindump-releases.s3.eu-central-1.amazonaws.com/Braindump_0.6.3_111/Braindump+Setup+0.6.3.exe'
+              version={version}
+              build={build}
             />
             <DownloadButton
               platform='darwin'
-              href='https://braindump-releases.s3.eu-central-1.amazonaws.com/Braindump_0.6.3_111/Braindump-0.6.3.dmg'
+              version={version}
+              build={build}
             />
             <DownloadButton
               platform='linux'
-              href='https://braindump-releases.s3.eu-central-1.amazonaws.com/Braindump_0.6.3_111/braindump-0.6.3.tar.gz'
-              href2='https://braindump-releases.s3.eu-central-1.amazonaws.com/Braindump_0.6.3_111/braindump_0.6.3_amd64.deb'
-              href3='https://braindump-releases.s3.eu-central-1.amazonaws.com/Braindump_0.6.3_111/braindump-0.6.3.x86_64.rpm'
+              version={version}
+              build={build}
             />
           </div>
 
