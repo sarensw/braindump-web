@@ -1,5 +1,6 @@
 import React from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
+import { Discord } from '../components/Discord'
 import { DownloadButton } from '../DownloadButton'
 import { GoPro } from './GoPro'
 
@@ -9,11 +10,14 @@ const Home = () => {
       <div className='relative overflow-hidden pt-4'>
         <div className='max-w-7xl mx-auto'>
           {/* <!-- header --> */}
-          <div className='flex flex-row flex-grow items-center px-8'>
+          <div className='flex flex-row flex-grow items-center px-8 gap-2'>
             <img className='w-6 mr-1' src='logo_128x128.png' alt='' />
             {/* <Logo /> */}
             <div className='font-mono'>braindump</div>
             <div className='flex-grow' />
+            <div>
+              <Discord />
+            </div>
             <div>
               <BuyMeCoffee width='9rem' />
             </div>
@@ -23,7 +27,7 @@ const Home = () => {
           <div className='mt-10 max-w-7xl mx-auto text-center text-5xl font-bold font-mono px-8'>Write down thoughts. Fast.</div>
 
           {/* <!-- description --> */}
-          <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8'>Offline notepad to quickly note down thoughts, meeting minutes, tasks and more. For developers. For techies. For keyboard lovers. Uses the Visual Studio Code editor underneath for a user experience that you are already used to.</div>
+          <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8'>Braindump is a plain-text Markdown based notepad that works completely offline. Write down your thoughts without thinking about structure first. For developers, makers, tech enthusiasts, and keyboard lovers.</div>
 
           {/* version */}
           <div className='text-center mt-8 mb-1 text-gray-500 px-8'>v0.6.3</div>
