@@ -14,9 +14,8 @@ const Home = () => {
         <div className='max-w-7xl mx-auto'>
           {/* <!-- header --> */}
           <div className='flex flex-row flex-grow items-center px-8 gap-2'>
-            <img className='w-6 mr-1' src='logo_128x128.png' alt='' />
-            {/* <Logo /> */}
-            <div className='font-mono'>braindump</div>
+            <img className='w-10 mr-1' src='logo.svg' alt='' />
+            <div className='text-xl font-mono'>braindump</div>
             <div className='flex-grow' />
             <div>
               <Discord />
