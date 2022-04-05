@@ -29,7 +29,7 @@ const Home = () => {
           <div className='mt-10 max-w-7xl mx-auto text-center text-5xl font-bold font-mono px-8'>Write down thoughts. Fast.</div>
 
           {/* <!-- description --> */}
-          <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8'>Braindump is a plain-text Markdown based notepad that works completely offline. Write down your thoughts without thinking about structure first. For developers, makers, tech enthusiasts, and keyboard lovers.</div>
+          <div className='mt-6 max-w-lg mx-auto text-center text-lg px-8'>The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown. Offline.</div>
 
           {/* version */}
           <div className='text-center mt-8 mb-1 text-gray-500 px-8'>v{version}</div>
@@ -55,7 +55,9 @@ const Home = () => {
 
           {/* <!-- gif --> */}
           <div className='mt-6 mb-4 max-w-3xl mx-auto'>
-            <img src='v0.6.0_main.gif' />
+            <video autoPlay>
+              <source src='v0.6.0_main.webm' type='video/webm' />
+            </video>
           </div>
 
           {/* go pro section */}
