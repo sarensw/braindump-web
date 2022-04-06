@@ -48,7 +48,7 @@ export const DownloadButton = ({ platform, version, build }: DownloadButtonProps
   return (
     <>
       <div className='flex flex-col gap-1'>
-        <a className='bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer' href={getLink()} onClick={() => trackEvent()}>
+        <a className='dark:bg-teal-500 bg-teal-700 p-3 rounded-sm gap-2 self-center flex flex-col items-center dark:text-gray-800 text-white w-44 place-content-center cursor-pointer' href={getLink()} onClick={() => trackEvent()}>
           {platform === 'darwin' &&
             <>
               <svg viewBox='0 0 384 512' width='32'>
@@ -75,9 +75,9 @@ export const DownloadButton = ({ platform, version, build }: DownloadButtonProps
             </>}
         </a>
         {platform === 'linux' &&
-          <div className='grid grid-cols-2 text-xs gap-1 text-white'>
-            <a className='bg-gray-800 text-center p-2' href={getLink('deb')}>.deb</a>
-            <a className='bg-gray-800 text-center p-2' href={getLink('rpm')}>.rpm</a>
+          <div className='grid grid-cols-2 text-xs gap-1 dark:text-gray-800 text-white'>
+            <a className='dark:bg-teal-500 bg-teal-700 text-center p-2' href={getLink('deb')}>.deb</a>
+            <a className='dark:bg-teal-500 bg-teal-700 text-center p-2' href={getLink('rpm')}>.rpm</a>
           </div>}
       </div>
     </>

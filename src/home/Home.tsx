@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
 import { DownloadButton } from '../components/DownloadButton'
+import { ThemeSwitcher } from '../components/ThemeSwitcher'
 import { GoPro } from './GoPro'
 
 const Home = () => {
@@ -15,8 +16,11 @@ const Home = () => {
           {/* <!-- header --> */}
           <div className='flex flex-row flex-grow items-center px-8 gap-2'>
             <img className='w-10 mr-1' src='logo.svg' alt='' />
-            <div className='text-xl font-mono'>braindump</div>
+            <div className='text-xl font-mono'>Braindump</div>
             <div className='flex-grow' />
+            <div>
+              <ThemeSwitcher />
+            </div>
             <div>
               <Discord />
             </div>
@@ -26,13 +30,13 @@ const Home = () => {
           </div>
 
           {/* <!-- title --> */}
-          <div className='mt-10 max-w-7xl mx-auto text-center text-5xl font-bold font-mono px-8'>Write down thoughts. Fast.</div>
+          <h1 className='mt-10 max-w-7xl mx-auto text-center text-5xl font-bold font-mono px-8 dark:text-white text-gray-800'>Write down thoughts. Fast.</h1>
 
           {/* <!-- description --> */}
-          <div className='mt-6 max-w-lg mx-auto text-center text-lg px-8'>The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown. Offline.</div>
+          <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8 font-light dark:text-gray-400 text-gray-500'>The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown with auto formatting and indentation. Offline.</div>
 
           {/* version */}
-          <div className='text-center mt-8 mb-1 text-gray-500 px-8'>v{version}</div>
+          <div className='text-center mt-8 mb-1 text-gray-400 px-8 text-sm'>v{version}</div>
 
           {/* <!-- download --> */}
           <div className='mx-auto flex flex-row gap-4 justify-center flex-wrap px-8'>
@@ -55,9 +59,11 @@ const Home = () => {
 
           {/* <!-- gif --> */}
           <div className='mt-6 mb-4 max-w-3xl mx-auto'>
-            <video autoPlay>
+            {/* <video playsInline autoPlay muted loop>
               <source src='v0.6.0_main.webm' type='video/webm' />
-            </video>
+            </video> */}
+            <img className='dark:block hidden' src='v0.7.0_features_dark.png' />
+            <img className='dark:hidden' src='v0.7.0_features_light.png' />
           </div>
 
           {/* go pro section */}
