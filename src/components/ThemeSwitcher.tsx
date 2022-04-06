@@ -14,7 +14,7 @@ const ThemeSwitcher: FunctionComponent = (): ReactElement => {
   }
 
   return (
-    <button onClick={toggleTheme} type='button'>
+    <button onClick={toggleTheme} type='button' className='align-middle'>
       <span className='dark:hidden'>
         <svg viewBox='0 0 24 24' fill='none' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className='w-6 h-6'>
           <path d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z' className='fill-sky-400/20 stroke-sky-500' />
