@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
 import { DownloadButton } from '../components/DownloadButton'
+import { Feature } from '../components/Feature'
 import { ThemeSwitcher } from '../components/ThemeSwitcher'
 import { GoPro } from './GoPro'
 
-const Home = () => {
+const Home = (): ReactElement => {
   const version = '0.7.0'
   const build = '117'
 
   return (
     <>
       <div className='relative overflow-hidden pt-4'>
-        <div className='max-w-7xl mx-auto'>
+        <div className='mx-auto'>
           {/* <!-- header --> */}
           <div className='flex flex-row flex-grow items-center px-8 gap-2'>
-            <img className='w-10 mr-1' src='logo.svg' alt='' />
+            <img className='w-9 mr-1 hidden dark:inline' src='logo_thin_dark.svg' alt='' />
+            <img className='w-9 mr-1 dark:hidden' src='logo_thin_light.svg' alt='' />
             <div className='text-xl font-mono'>Braindump</div>
             <div className='flex-grow' />
             <div>
@@ -69,6 +71,11 @@ const Home = () => {
           {/* go pro section */}
           {/* <div className='mb-48'>
             <GoPro />
+          </div> */}
+
+          {/* feature section */}
+          {/* <div className='mb-48'>
+            <Feature />
           </div> */}
         </div>
       </div>

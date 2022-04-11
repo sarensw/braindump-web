@@ -35,7 +35,7 @@ export const DownloadButton = ({platform, version, build}) => {
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col gap-1"
   }, /* @__PURE__ */ React.createElement("a", {
-    className: "bg-gray-800 p-3 rounded-sm gap-2 self-center flex flex-col items-center text-white w-44 place-content-center cursor-pointer",
+    className: "dark:bg-yellow-400 bg-yellow-400 p-3 rounded-sm gap-2 self-center flex flex-col items-center dark:text-gray-800 text-gray-800 w-44 place-content-center cursor-pointer",
     href: getLink(),
     onClick: () => trackEvent()
   }, platform === "darwin" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("svg", {
@@ -69,12 +69,12 @@ export const DownloadButton = ({platform, version, build}) => {
   }, "Windows"), /* @__PURE__ */ React.createElement("div", {
     className: "text-xs"
   }, "Windows 7, 8, 10, 11"))), platform === "linux" && /* @__PURE__ */ React.createElement("div", {
-    className: "grid grid-cols-2 text-xs gap-1 text-white"
+    className: "grid grid-cols-2 text-xs gap-1 text-gray-800 dark:text-gray-800"
   }, /* @__PURE__ */ React.createElement("a", {
-    className: "bg-gray-800 text-center p-2",
+    className: "dark:bg-yellow-400 bg-yellow-400 text-center p-2",
     href: getLink("deb")
   }, ".deb"), /* @__PURE__ */ React.createElement("a", {
-    className: "bg-gray-800 text-center p-2",
+    className: "dark:bg-yellow-400 bg-yellow-400 text-center p-2",
     href: getLink("rpm")
   }, ".rpm"))));
 };
