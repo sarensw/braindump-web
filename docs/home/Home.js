@@ -1,11 +1,18 @@
-import React from "../_snowpack/pkg/react.js";
+import React, {useState} from "../_snowpack/pkg/react.js";
 import {BuyMeCoffee} from "../components/BuyMeCoffee.js";
 import {Discord} from "../components/Discord.js";
 import {DownloadButton} from "../components/DownloadButton.js";
+import {DownloadVersionSwitcher} from "../components/DownloadVersionSwitcher.js";
 import {ThemeSwitcher} from "../components/ThemeSwitcher.js";
+import {defaultReleaseIndex, validReleases} from "../releases.js";
 const Home = () => {
-  const version = "0.7.0";
-  const build = "117";
+  const [selectedRelease, setSelectedRelease] = useState(validReleases[defaultReleaseIndex]);
+  const selectedBuildChanged = (build) => {
+    const release = validReleases.find((r) => r.build === build);
+    if (release != null) {
+      setSelectedRelease(release);
+    }
+  };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "relative overflow-hidden pt-4"
   }, /* @__PURE__ */ React.createElement("div", {
@@ -30,22 +37,22 @@ const Home = () => {
     className: "mt-10 max-w-7xl mx-auto text-center text-5xl font-bold font-mono px-8 dark:text-white text-gray-800"
   }, "Write down thoughts. Fast."), /* @__PURE__ */ React.createElement("div", {
     className: "mt-6 max-w-xl mx-auto text-center text-lg px-8 font-light dark:text-gray-400 text-gray-500"
-  }, "The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown with auto formatting and indentation. Offline."), /* @__PURE__ */ React.createElement("div", {
-    className: "text-center mt-8 mb-1 text-gray-400 px-8 text-sm"
-  }, "v", version), /* @__PURE__ */ React.createElement("div", {
+  }, "The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown with auto formatting and indentation. Offline."), /* @__PURE__ */ React.createElement(DownloadVersionSwitcher, {
+    onChange: selectedBuildChanged
+  }), /* @__PURE__ */ React.createElement("div", {
     className: "mx-auto flex flex-row gap-4 justify-center flex-wrap px-8"
   }, /* @__PURE__ */ React.createElement(DownloadButton, {
     platform: "win",
-    version,
-    build
+    version: selectedRelease.version,
+    build: selectedRelease.build
   }), /* @__PURE__ */ React.createElement(DownloadButton, {
     platform: "darwin",
-    version,
-    build
+    version: selectedRelease.version,
+    build: selectedRelease.build
   }), /* @__PURE__ */ React.createElement(DownloadButton, {
     platform: "linux",
-    version,
-    build
+    version: selectedRelease.version,
+    build: selectedRelease.build
   })), /* @__PURE__ */ React.createElement("div", {
     className: "mt-6 mb-4 max-w-3xl mx-auto"
   }, /* @__PURE__ */ React.createElement("img", {

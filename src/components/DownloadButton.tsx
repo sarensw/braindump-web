@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 interface DownloadButtonProps {
-  platform: string,
-  version: string,
+  platform: string
+  version: string
   build: string
 }
 
-export const DownloadButton = ({ platform, version, build }: DownloadButtonProps) => {
-  const trackEvent = () => {
+export const DownloadButton = ({ platform, version, build }: DownloadButtonProps): ReactElement => {
+  const trackEvent = (): void => {
     try {
       if (platform === 'win') {
         // @ts-expect-error: global fathom given by fathom script
@@ -24,7 +24,7 @@ export const DownloadButton = ({ platform, version, build }: DownloadButtonProps
     }
   }
 
-  const getLink = (alt: string | undefined = undefined) => {
+  const getLink = (alt: string | undefined = undefined): string => {
     const url = 'https://braindump-releases.s3.eu-central-1.amazonaws.com'
     const name = 'Braindump'
     if (platform === 'win') {
@@ -42,6 +42,7 @@ export const DownloadButton = ({ platform, version, build }: DownloadButtonProps
     } else {
       return ''
     }
+    return ''
   }
 
   return (

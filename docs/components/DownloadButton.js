@@ -31,6 +31,7 @@ export const DownloadButton = ({platform, version, build}) => {
     } else {
       return "";
     }
+    return "";
   };
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "flex flex-col gap-1"

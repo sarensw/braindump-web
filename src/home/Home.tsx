@@ -2,13 +2,19 @@ import React, { ReactElement, useState } from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
 import { DownloadButton } from '../components/DownloadButton'
-import { Feature } from '../components/Feature'
+import { DownloadVersionSwitcher } from '../components/DownloadVersionSwitcher'
 import { ThemeSwitcher } from '../components/ThemeSwitcher'
-import { GoPro } from './GoPro'
+import { defaultReleaseIndex, Release, validReleases } from '../releases'
 
 const Home = (): ReactElement => {
-  const version = '0.7.0'
-  const build = '117'
+  const [selectedRelease, setSelectedRelease] = useState<Release>(validReleases[defaultReleaseIndex])
+
+  const selectedBuildChanged = (build: string): void => {
+    const release = validReleases.find(r => r.build === build)
+    if (release != null) {
+      setSelectedRelease(release)
+    }
+  }
 
   return (
     <>
@@ -38,24 +44,24 @@ const Home = (): ReactElement => {
           <div className='mt-6 max-w-xl mx-auto text-center text-lg px-8 font-light dark:text-gray-400 text-gray-500'>The digital notebook for developers, and makers. Ultra fast fuzzy search. Mouse or Keyboard only navigation. Pure markdown with auto formatting and indentation. Offline.</div>
 
           {/* version */}
-          <div className='text-center mt-8 mb-1 text-gray-400 px-8 text-sm'>v{version}</div>
+          <DownloadVersionSwitcher onChange={selectedBuildChanged} />
 
           {/* <!-- download --> */}
           <div className='mx-auto flex flex-row gap-4 justify-center flex-wrap px-8'>
             <DownloadButton
               platform='win'
-              version={version}
-              build={build}
+              version={selectedRelease.version}
+              build={selectedRelease.build}
             />
             <DownloadButton
               platform='darwin'
-              version={version}
-              build={build}
+              version={selectedRelease.version}
+              build={selectedRelease.build}
             />
             <DownloadButton
               platform='linux'
-              version={version}
-              build={build}
+              version={selectedRelease.version}
+              build={selectedRelease.build}
             />
           </div>
 
