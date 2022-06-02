@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
 import { DownloadButton } from '../components/DownloadButton'
@@ -15,6 +15,13 @@ const Home = (): ReactElement => {
       setSelectedRelease(release)
     }
   }
+
+  useEffect(() => {
+    const release = validReleases.find(r => r.def)
+    if (release != null) {
+      setSelectedRelease(release)
+    }
+  }, [])
 
   return (
     <>
