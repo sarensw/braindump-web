@@ -1,4 +1,4 @@
-import React, {useState} from "../_snowpack/pkg/react.js";
+import React, {useEffect, useState} from "../_snowpack/pkg/react.js";
 import {BuyMeCoffee} from "../components/BuyMeCoffee.js";
 import {Discord} from "../components/Discord.js";
 import {DownloadButton} from "../components/DownloadButton.js";
@@ -13,6 +13,12 @@ const Home = () => {
       setSelectedRelease(release);
     }
   };
+  useEffect(() => {
+    const release = validReleases.find((r) => r.def);
+    if (release != null) {
+      setSelectedRelease(release);
+    }
+  }, []);
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     className: "relative overflow-hidden pt-4"
   }, /* @__PURE__ */ React.createElement("div", {
