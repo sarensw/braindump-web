@@ -18,7 +18,7 @@ const DownloadVersionSwitcher: FunctionComponent<DownloadVersionSwitcherProps> =
               key={index}
               selected={release.def}
               value={release.build}
-            >{release.version}{release.pre ? '-alpha' : ''}
+            >{release.version}{release.pre ? '-beta' : ''}
             </option>
           )
         })}

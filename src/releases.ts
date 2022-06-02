@@ -41,7 +41,7 @@ export const validReleases: Release[] = [
     def: false,
     pre: true,
     version: '0.8.0',
-    build: '124'
+    build: '125'
   }
 ]
 
