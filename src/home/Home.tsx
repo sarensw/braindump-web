@@ -3,6 +3,7 @@ import { BuyMeCoffee } from '../components/BuyMeCoffee'
 import { Discord } from '../components/Discord'
 import { DownloadButton } from '../components/DownloadButton'
 import { DownloadVersionSwitcher } from '../components/DownloadVersionSwitcher'
+import { Feature } from '../components/Feature'
 import { ThemeSwitcher } from '../components/ThemeSwitcher'
 import { defaultReleaseIndex, Release, validReleases } from '../releases'
 
@@ -87,9 +88,10 @@ const Home = (): ReactElement => {
           </div> */}
 
           {/* feature section */}
-          {/* <div className='mb-48'>
+          <div className='mb-48'>
+            <h2 className='my-10 max-w-7xl mx-auto text-center text-3xl font-bold font-mono px-8 dark:text-white text-gray-800'>Features</h2>
             <Feature />
-          </div> */}
+          </div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "../_snowpack/pkg/react.js";
 const Feature = () => {
   return /* @__PURE__ */ React.createElement("div", {
-    className: "bg-gray-700"
+    className: ""
   }, /* @__PURE__ */ React.createElement("div", {
     className: "grid grid-cols-2 max-w-2xl mx-auto py-4"
   }, /* @__PURE__ */ React.createElement("div", {

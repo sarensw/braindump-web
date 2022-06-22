@@ -33,7 +33,7 @@ export const validReleases = [
     def: true,
     pre: false,
     version: "0.8.0",
-    build: "129"
+    build: "131"
   }
 ];
 export const defaultReleaseIndex = 0;
