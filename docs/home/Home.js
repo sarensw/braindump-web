@@ -3,7 +3,6 @@ import {BuyMeCoffee} from "../components/BuyMeCoffee.js";
 import {Discord} from "../components/Discord.js";
 import {DownloadButton} from "../components/DownloadButton.js";
 import {DownloadVersionSwitcher} from "../components/DownloadVersionSwitcher.js";
-import {Feature} from "../components/Feature.js";
 import {ThemeSwitcher} from "../components/ThemeSwitcher.js";
 import {defaultReleaseIndex, validReleases} from "../releases.js";
 const Home = () => {
@@ -68,10 +67,6 @@ const Home = () => {
   }), /* @__PURE__ */ React.createElement("img", {
     className: "dark:hidden",
     src: "v0.7.0_features_light.png"
-  })), /* @__PURE__ */ React.createElement("div", {
-    className: "mb-48"
-  }, /* @__PURE__ */ React.createElement("h2", {
-    className: "my-10 max-w-7xl mx-auto text-center text-3xl font-bold font-mono px-8 dark:text-white text-gray-800"
-  }, "Features"), /* @__PURE__ */ React.createElement(Feature, null)))));
+  })))));
 };
 export {Home};
