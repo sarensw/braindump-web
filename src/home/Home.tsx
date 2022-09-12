@@ -88,9 +88,20 @@ const Home = (): ReactElement => {
           </div> */}
 
           {/* feature section */}
-          <div className='mb-48'>
+          <div className='mb-48 px-8'>
             <h2 className='my-10 max-w-7xl mx-auto text-center text-3xl font-bold font-mono px-8 dark:text-white text-gray-800'>Features</h2>
-            <Feature />
+            <Feature
+              title='Fuzzy Search'
+              description='Write down your notes first. Organize later. Or use the ultra fast fuzzy search to find anything whenever you want. Hit ESC or Cmd/Ctrl+P to start.'
+              imageDark='v0.9.0_fuzzy_search.gif'
+              imageLight='v0.9.0_fuzzy_search.gif'
+            />
+            <Feature
+              title='Snippets'
+              description='Create your own snippets to quickly add repetitive information. This also helps to structure things that repeat often.'
+              imageDark='v0.9.0_snippets.gif'
+              imageLight='v0.9.0_snippets.gif'
+            />
           </div>
         </div>
       </div>
