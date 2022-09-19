@@ -44,10 +44,16 @@ export const validReleases: Release[] = [
     build: '131'
   },
   {
-    def: true,
+    def: false,
     pre: false,
     version: '0.9.0',
     build: '139'
+  },
+  {
+    def: true,
+    pre: false,
+    version: '0.9.1',
+    build: '141'
   }
 ]
 
